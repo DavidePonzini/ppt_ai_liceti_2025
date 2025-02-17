@@ -4,5 +4,5 @@ add_remote:
 rebase:
 	git fetch template
 	git rebase -X theirs template/main
-	git pull
+	git pull --allow-unrelated-histories
 	git push
