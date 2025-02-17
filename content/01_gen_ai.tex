@@ -1,0 +1,576 @@
+\makesectionframe{Introduzione}
+
+\begin{contentframe}
+    \frametitle{Cosa sono le intelligenze artificiali generative?}
+
+    \begin{itemize}
+        \item Le intelligenze artificiali \textit{(IA o AI)} generative sono strumenti in grado di generare testo, immagini o altro in risposta ad una richiesta
+
+        \bigskip
+        \item Tra le più famose: ChatGPT, Gemini, Claude, Llama, Mistral, ...
+
+        \bigskip
+        \item Noi facciamo una domanda e lo strumento genera una risposta
+        \begin{itemize}
+            \item Vediamo un esempio...
+            \item \url{https://chatgpt.com/}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\makesectionframe{Le intelligenze artificiali}
+
+\begin{contentframe}
+    \frametitle{IA VS IA Generative}
+
+    \begin{itemize}
+        \item Introduciamo una distinzione importante...
+    \end{itemize}
+
+    \bigskip
+    \begin{block}{Intelligenza artificiale}
+        Programma che svolge un compito che richiede normalmente ``intelligenza umana''
+
+        \small\textit{In genere operazioni per cui serve ragionare}
+    \end{block}
+
+    \begin{block}{Intelligenza artificiale generativa}
+        Intelligenza artificiale specializzata nella generazione di contenuti
+        
+        \small\textit{Esempio: testo, immagini, ...}
+    \end{block}
+\end{contentframe}
+
+
+\begin{exampleframe}
+    \frametitle{Le intelligenze artificiali}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item Mostrare ad un utente la pubblicità più rilevante, conoscendo i suoi interessi
+
+        \bigskip
+        \item Proporre ad un utente una nuova canzone da ascoltare, a partire dalla playlist corrente
+
+        \bigskip
+        \item Capire se la nostra auto deve svoltare, andare dritta o fermarsi, utilizzando i dati provenienti dai vari sensori
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Le intelligenze artificiali generative}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item Tradurre efficientemente da una lingua ad un'altra
+
+        \bigskip
+        \item Scrivere un testo in un certo stile o secondo determinate regole
+
+        \bigskip
+        \item Dialogare \textit{(o meglio, simulare un dialogo)} con una persona
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{AI deduttiva vs AI induttiva}
+
+    \begin{itemize}
+        \item Come fanno le AI a capire qual è la risposta giusta ad un problema?
+
+        \bigskip
+        \item Due approcci:
+        \begin{itemize}
+            \item AI deduttiva (o simbolica)
+            \item AI induttiva
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{AI deduttiva vs AI induttiva}
+
+    \begin{block}{AI deduttiva (o simbolica)}
+        \textbf{Imparare dalle regole.}
+        Rappresenta i problemi e cerca di risolverli tramite una serie di regole logiche.
+        \\\textbf{Limitazione:} esistono infiniti problemi non risolvibili con questo approccio.
+    \end{block}
+
+    \begin{block}{AI induttiva}
+        \textbf{Imparare dall'esperienza.}
+        Estrae regole e modelli a partire da grandi quantità di dati.
+        \\\textbf{Limitazione:} il modello è vincolato ai dati su cui è allenato.
+    \end{block}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{AI deduttiva vs AI induttiva}
+    \framesubtitle{Esempio}
+
+    \begin{itemize}
+        \item Supponiamo di voler predire il voto che un certo studente prenderà all'interrogazione, sapendo il numero di ore che ha studiato
+
+        \pause
+        \bigskip
+        \item \textbf{AI deduttiva:} partendo la problema, si cercano delle regole logiche che permettano di calcolare i voti
+        \pause
+        \item \textbf{AI induttiva:}  partendo da tanti voti di studenti, si cerca di trovare un calcolo statistico abbastanza accurato 
+    \end{itemize}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{AI deduttiva}
+
+    \begin{itemize}
+        \item Provare a definire un insieme di regole per indovinare che voto prenderà un certo studente all'interrogazione. Esempio:
+    \end{itemize}
+
+    \centering
+    \smartarttree[
+            Lo studente ha studiato?
+            [Sì[??][??]]
+            [No[??][??]]
+        ]{}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Machine Learning}
+
+    \begin{itemize}
+        \item L'AI induttiva si basa sul ``Machine Learning''
+    \end{itemize}
+
+    \bigskip
+    \begin{block}{Machine Learning}
+        Procedimento statistico per predire con una certa probabilità la risposta corretta
+        \begin{itemize}
+            \item Ha bisogno di dati da cui partire
+        \end{itemize}
+    \end{block}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Machine Learning}
+    \framesubtitle{KNN}
+
+    \begin{itemize}
+        \item Vediamo un esempio semplificato di Machine Learning
+        \begin{itemize}
+            \item KNN \textit{(``K-Nearest Neighbours'')}
+        \end{itemize}
+
+        \bigskip
+        \item Sapendo il numero di ore che uno studente ha studiato, vogliamo predire il voto che prenderà all'interrogazione
+
+        \bigskip
+        \item Abbiamo prima di tutto bisogno di sapere le ore di studio e i voti di altre persone
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Machine Learning}
+    \framesubtitle{KNN}
+
+    \begin{itemize}
+        \item Che voto prenderà uno studente che ha studiato\\esattamente 1 ora?
+        \item<2-> Guardiamo i voti più vicini e facciamo la media (\only<2-4>{$k = 1$}\only<5->{$k = 3$})
+    \end{itemize}
+
+    \only<1-2>{
+        \centering
+        \image*[1][.4]{knn-scatterplot1.pdf}
+    }%
+    \only<3>{
+        \centering
+        \image*[1][.4]{knn-scatterplot2.pdf}
+    }%
+    \only<4>{
+        \centering
+        \image*[1][.4]{knn-scatterplot3.pdf}
+    }%
+    \only<5>{
+        \centering
+        \image*[1][.4]{knn-scatterplot4.pdf}
+    }%
+    \only<6>{
+        \centering
+        \image*[1][.4]{knn-scatterplot5.pdf}
+    }%
+
+    \begin{itemize}
+        \item<4-> Lo studente probabilmente prenderà \only<4-5>{$6.0$}\only<6>{$6.8$}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Machine Learning}
+
+    \begin{itemize}
+        \item Dall'esempio di prima emerge un problema
+
+        \bigskip
+        \item Qual è il valore di $k$ che fornisce risultati migliori?
+        \begin{itemize}
+            \item $k$ troppo piccolo dà risultati poco precisi
+            \item $k$ troppo grande dà sempre lo stesso risultato per tutti
+        \end{itemize}
+
+        \pause
+        \begin{block}{Training}
+            Si provano tutti i valori dei parametri \textit{(in questo caso solo $k$)} fino a trovare quello che fornisce risultati più accurati
+        \end{block}
+
+        \begin{itemize}
+            \item Per un solo parametro è facile, ma le AI generative ne hanno miliardi!
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Machine Learning}
+    \framesubtitle{Training}
+
+    \begin{itemize}
+        \item Fase iniziale con cui si trovano i parametri migliori
+        \begin{itemize}
+            \item Possono variare in base ai dati o allo scopo
+        \end{itemize}
+
+        \bigskip
+        \item Una volta trovati i parametri ``ideali'', il modello può essere usato
+        \item Più dati abbiamo, più i parametri scelti in fase di training saranno efficaci
+        
+        \begin{itemize}
+            \item ChatGPT è stato allenato su più di 500 GB di dati
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Training}
+
+    \begin{itemize}
+        \item Vogliamo preparare la pasta al sugo
+        \item Abbiamo a disposizione un esperto a cui fare assaggiare tutti i piatti che vogliamo
+    \end{itemize}
+
+    \bigskip
+    \centering
+    \image*[.45]{pasta.jpg}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Training}
+    \begin{tikzimage}
+        \node[draw, ellipse] (acqua) at (0, 3) {Acqua};
+        \node[draw, ellipse] (pasta) at (0, 2) {Pasta};
+        \node[draw, ellipse] (salsa) at (0, 1) {Salsa di pomodoro};
+        \node[draw, ellipse] (olio) at (0, 0) {Olio};
+        \node[draw, ellipse] (grana) at (0, -1) {Grana};
+        \node[draw, ellipse] (sale) at (0, -2) {Sale};
+
+        \node[draw, circle] (target) at (8, 0) {\faThumbsUp~\faThumbsDown};
+        
+        \draw[->] (acqua) -- node[above] {peso} (target);
+        \draw[->] (pasta) -- node[above] {peso} (target);
+        \draw[->] (salsa) -- node[above] {peso} (target);
+        \draw[->] (olio) -- node[above] {peso} (target);
+        \draw[->] (grana) -- node[above] {peso} (target);
+        \draw[->] (sale) -- node[above] {peso} (target);
+    \end{tikzimage}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Training}
+    \framesubtitle{Ridurre l'errore di apprendimento}
+
+    \begin{itemize}
+        \item Algoritmo basato sul principio del ``perdere quota ad ogni passo''
+    \end{itemize}
+
+    \bigskip
+    \begin{columns}
+        \col{.5}
+        \centering
+        \image*{hiking.jpg}
+        
+        \col{.5}
+        \centering
+        \begin{tikzimage}
+            % Convex function (blue line)
+            \draw[thick, domain=0.5:3.5, smooth, variable=\x, blue] 
+                plot ({\x}, {0.5*(\x - 2.3)^2});
+            \fill[blue] (1, {0.5*(1 - 2.3)^2}) circle (2pt);
+        
+            % Non-convex function (red line)
+            \draw[thick, domain=0.5:3.5, smooth, variable=\x, red] 
+                plot ({\x}, {0.5*sin(3.6*deg(\x)) - 0.5*\x - 0.5});
+            \fill[red] (1, {0.5*sin(3.6*deg(1)) - 0.5*1 - 0.5}) circle (2pt);
+        \end{tikzimage}
+    \end{columns}
+\end{exampleframe}
+
+\makesectionframe{Funzionamento AI generativa}
+
+\begin{contentframe}
+    \frametitle{Come funzionano le AI generative?}
+
+    \begin{itemize}
+        \item Sistema complesso in grado di estrarre il significato da una frase e di elaborarlo
+        \begin{itemize}
+            \item Calcoli matematici complessi permettono di capire quali informazioni sono più rilevanti
+        \end{itemize}
+        
+        \bigskip
+        \item Dopo aver elaborato la risposta, la converte in testo (o altro formato)
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Architettura AI generativa}
+    \framesubtitle{Embedding}
+    
+    \begin{itemize}
+        \item I calcoli matematici non sono eseguiti direttamente sul testo, ma sul loro \textit{embedding}
+    \end{itemize}
+
+    \begin{block}{Embedding}
+        Rappresentazione numerica del significato delle parole
+
+        \begin{itemize}
+            \item Ogni parola viene rappresentata come una serie di numeri
+            \item Ogni numero indica la rilevanza di un certo tipo di concetto per quella parola
+        \end{itemize}
+    \end{block}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Embedding (1)}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|c|c|c|c|c|}
+            \toprule
+            Parola & Domestico & Animale & Taglia & Affettuoso & Caccia \\
+            \midrule
+            Cane        & 0.9 & 1.0 & 0.5 & 0.7 & 0.6 \\
+            Gatto       & 0.9 & 1.0 & 0.3 & 0.8 & 0.4 \\
+            Cavallo     & 0.5 & 1.0 & 0.9 & 0.5 & 0.3 \\
+            Leone       & 0.1 & 1.0 & 0.8 & 0.2 & 1.0 \\
+            Coniglio    & 0.8 & 1.0 & 0.2 & 0.8 & 0.3 \\
+            Elefante    & 0.0 & 1.0 & 1.0 & 0.4 & 0.2 \\
+            Tigre       & 0.0 & 1.0 & 0.8 & 0.3 & 0.8 \\
+            Pappagallo  & 0.7 & 1.0 & 0.1 & 0.9 & 0.1 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Embedding (2)}
+
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|c|c|c|c|c|}
+            \toprule
+            Parola & Domestico & Animale & Taglia & Affettuoso & Caccia \\
+            \midrule
+            Cane        & 0.9 & 1.0 & 0.5 & 0.7 & 0.6 \\
+            Gatto       & 0.9 & 1.0 & 0.3 & 0.8 & 0.4 \\
+            Automobile  & 0.0 & 0.0 & 0.8 & 0.0 & 0.0 \\
+            Fucile      & 0.0 & 0.0 & 0.6 & 0.0 & 0.9 \\
+            Peluche     & 0.9 & 0.3 & 0.3 & 0.8 & 0.0 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Architettura AI generativa}
+    \framesubtitle{Tokenization}
+
+    \begin{block}{Embedding}
+        Rappresentazione numerica del significato delle parole
+    \end{block}
+
+    \begin{itemize}
+        \item L'embedding richiede però che le frasi siano già state separate correttamente in una sequenza di parole
+        \item Questa operazione si chiama \textit{Tokenization}
+    \end{itemize}
+
+    \begin{block}{Tokenization}
+        Suddivisione di una frase in Token
+        
+        Un Token equivale in genere ad una parola, ma ci possono essere eccezioni
+    \end{block}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Tokenization}
+
+    \image*[.95]{tokenization.png}
+
+    \bigskip
+    Fonte: \url{https://platform.openai.com/tokenizer}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Architettura AI generativa}
+    \framesubtitle{Riassumendo...}
+
+    \smartartsequence[Prompt,Token +\\Embedding,Transformer,Risposta][2.2]
+
+    \begin{itemize}
+        \item \textbf{Prompt:} richiesta dell'utente
+        \begin{itemize}
+            \item La richiesta è composta da tutto lo storico dei messaggi della conversazione corrente
+        \end{itemize}
+        \item \textbf{Tokenization + embedding:} separazione del testo in token ($\sim$ parole) e conversione in numeri
+        \begin{itemize}
+            \item Ogni numero rapprensenta la rilevanza della parola per un certo concetto
+        \end{itemize}
+        \item \textbf{Transformer:} calcoli matematici per generare la risposta
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Approfondimento}
+
+    \begin{itemize}
+        \item \href{https://github.com/DavidePonzini/didattica/raw/refs/heads/main/res/HowWordVectorsEncodeMeaning.mkv}{How word vectors encode meaning \faFileVideo}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Utilizzi principali}
+
+    \begin{itemize}
+        \item Lo strumento è nato per un numero ristretto di operazioni testuali:
+        \begin{itemize}
+            \item Text Summarization
+            \item Information Extraction
+            \item Question Answering
+            \item Text Classification
+        \end{itemize}
+        
+        \bigskip
+        \item Successivamente, si è notato che tramite tecniche di \textbf{prompting}, lo strumento è in grado di risolvere un ampio numero di compiti
+    \end{itemize}
+\end{contentframe}
+
+\makesectionframe{Limitazioni e rischi}
+
+\begin{contentframe}
+    \frametitle{Limitazioni AI generativa (1)}
+
+    \begin{itemize}
+        \item La sua conoscenza deriva solo dai dati su cui è stato fatto training
+        \begin{itemize}
+            \item Non ha le informazioni più recenti
+        \end{itemize}
+        
+        \bigskip
+        \item Può estrarre e rielaborare informazioni da una frase, ma non la capisce davvero
+        \begin{itemize}
+            \item È uno strumento, non una persona
+        \end{itemize}
+        
+        \bigskip
+        \item Gli strumenti sono pensati per dire ciò che l'utente si vuol \textit{(inconsciamente)} sentire dire
+        \begin{itemize}
+            \item Molto spesso corrisponde al vero, ma non è sempre detto!
+            \item Esempio: Paolo Rossi e suo ``padre'' \href{https://chatgpt.com/share/6788f77b-4758-8003-84ec-12aefa6654a0}{(1)}, \href{https://chatgpt.com/share/6788f901-f5a4-8003-8001-8f26228454e3}{(2)}, \href{https://chatgpt.com/share/679892a1-cae4-8003-a0f0-aa8c36fd2d0d}{(3)}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Limitazioni AI generativa (2)}
+
+    \begin{itemize}
+        \item Le risposte sono generate in maniera probabilistica
+        \begin{itemize}
+            \item È probabile ottenere la risposta corretta, ma non è \underline{mai} garantito!
+            \item La stessa domanda può fornire risposte diverse, a volte anche significativamente
+        \end{itemize}
+
+        \bigskip
+        \item Esempio: calcolo del dominio di $\frac{\sqrt{-5x + 7}}{\ln(\sqrt{x})} + \cos^2\left(\frac{\pi}{4x}\right)$
+        \begin{itemize}
+            \item \href{https://chatgpt.com/share/6776910a-2990-8003-a158-e9337a55edf2}{Risposta 1}
+            \item \href{https://chatgpt.com/share/67769686-f368-8003-b862-005258d4ba3a}{Risposta 2}
+            \item \href{https://www.wolframalpha.com/input?i2d=true&i=Divide\%5BSqrt\%5B-5x\%2B7\%5D\%2Cln\%5C\%2840\%29Sqrt\%5Bx\%5D\%5C\%2841\%29\%5D\%2BSquare\%5Bcos\%5C\%2840\%29Divide\%5B\%CF\%80\%2C4x\%5D\%5C\%2841\%29\%5Ddomain}{Soluzione Wolfram Alpha}
+        \end{itemize}
+
+    \end{itemize}
+\end{contentframe}
+
+
+\begin{contentframe}
+    \frametitle{Bias}
+
+    \begin{itemize}
+        \item Problema particolarmente rilevante nel Machine Learning.
+
+        \bigskip
+        \item Si verifica quando sono presenti dati ``di parte'' nella fase di training del modello
+
+        \bigskip
+        \item Questi pregiudizi riaffiorano nelle risposte
+        \item Spesso sono difficili da notare
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Bias}
+    \framesubtitle{Esempi}
+
+    \centering
+    \begin{itemize}
+        \item Il modello è allenato (anche) su dati di utenti americani
+    \end{itemize}
+    
+    \image*[.6]{bias_1.jpg}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Bias}
+    \framesubtitle{Esempi}
+
+    \centering
+    \begin{itemize}
+        \item I dati sui cui è allenato il modello contengono diversi tipi di pregiudizi
+
+        \bigskip
+        \item \href{https://chatgpt.com/share/67518d78-2588-8003-94c1-0c0a474b0fe7}{Scrivere una mail}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Data Leak \& Data Breach}
+
+    \begin{itemize}
+        \item \textbf{Data Leak}: esposizione a dati sensibili da parte di un sistema AI
+        \begin{itemize}
+            \item Inizia quando si scrivono informazioni sensibili nelle richieste all'AI
+            \item Queste informazioni vengono integrate nel modello e possono comparire in futuro nelle risposte che fornisce a tutti
+        \end{itemize}
+
+        \bigskip
+        \item \textbf{Data Breach}: utilizzo dei dati ottenuti tramite Data Leak per azioni dannose
+        \begin{itemize}
+            \item Furti d’identità, ricatti, danni economici o reputazionali, diffusione di fake news, ...
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Data Leak \& Data Breach}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item \href{https://www.reddit.com/r/ProgrammerHumor/comments/17co7vv/hackingin2024/}{Password root Server Google}
+        \item \href{https://www.reddit.com/r/ChatGPT/comments/14bpla2/thanks_grandma_one_of_the_keys_worked_for_windows/}{Chiavi attivazione Windows 7 Ultimate}
+    \end{itemize}
+\end{exampleframe}
+

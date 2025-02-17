@@ -1,0 +1,551 @@
+\makesectionframe{Prompt engineering}[Tecniche base]
+
+% utilizzi principali
+% Text Summarization
+% Information Extraction
+% Question Answering
+% Text Classification
+% Conversation
+% Code Generation
+% Reasoning
+
+\begin{contentframe}
+    \frametitle{I prompt}
+
+    \begin{itemize}
+        \item \textbf{Prompt:} richieste che faccio ad una AI generativa
+        \item \textbf{Prompt Engineering:} tecniche per formulare le richieste in modo ottimale
+
+        \bigskip
+        \item Tramite tecniche di prompt engineering, posso usare lo strumento per ottenere buoni risultati in tanti campi 
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Struttura dei prompt}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Lo strumento genera il messaggio a partire dai precedenti
+    
+            \bigskip
+            \item Tre tipi di messaggio
+            \begin{itemize}
+                \item \textbf{Sistema:} istruzioni per il modello \textit{(utile solo in situazioni particolari)}
+                \item \textbf{Utente:} richiesta dell'utente
+                \item \textbf{Assistente:} risposta del modello
+            \end{itemize}
+        \end{itemize}
+
+        \col{.5}
+        \centering
+        \smartartflowvertical[System,User,Assistant]
+    \end{columns}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Struttura dei prompt}
+    \framesubtitle{Esempio}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/6759a21f-19ec-8003-a172-e0630eae761d}{Prompt 1} ( $\boxed{S + U} \rightarrow A$ )
+        \item \href{https://chatgpt.com/share/67605a8c-2fec-8003-8e82-c54f49687c1b}{Prompt 2} ( $\boxed{S + U_1 + A_1 + U_2} \rightarrow A_2$ )
+
+        \bigskip
+        \item Il prompt di sistema non è specificato, quindi è:\\
+            \texttt{You are ChatGPT, a large language model trained by OpenAI. Answer as concisely and informatively as possible. Your knowledge is up to date until [cutoff date].}
+    \end{itemize}
+\end{exampleframe}
+
+\makesectionframe{Come si scrivono i prompt}
+
+\begin{contentframe}
+    \frametitle{Come si scrivono i prompt}
+
+    \begin{itemize}
+        \item \textbf{Obiettivo:} aumentare la possibilità di ottenere \underline{esattamente} la risposta desiderata
+        \begin{enumerate}%[label=\alph*)]
+            \item Specificità e chiarezza
+            \item Formati input e output
+            \item Utilizzo di delimitatori
+            \item Decomposizione attività complesse
+        \end{enumerate}
+        
+        \bigskip
+        \item \textbf{Assicurarsi di poter sempre verificare le risposte fornite!}
+        \begin{itemize}
+            \item Con conoscenza personale
+            \item Tramite strumenti esterni
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Specificità e chiarezza}
+
+    \begin{itemize}
+        \item Descrivi chiaramente l'obiettivo desiderato
+
+        \bigskip
+        \item Evita ambiguità per evitare risposte non pertinenti
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Specificità e chiarezza}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/6759a98f-8218-8003-9eb8-bf85e9699044}{Istruzioni vaghe -- studenti}
+        \item \href{https://chatgpt.com/share/6759aa0f-1404-8003-b15e-0330328e1803}{Richiesta precisa e ben definita -- studenti}
+
+        \bigskip
+        \item \href{https://chatgpt.com/share/6759aa68-0ba4-8003-ae44-d856b0014d10}{Istruzioni vaghe -- docenti}
+        \item \href{https://chatgpt.com/share/6759ab31-c6c0-8003-a3aa-8c06ddf5ee13}{Richiesta precisa e ben definita -- docenti}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Formati input e output}
+
+    \begin{itemize}
+        \item Usare formati strutturati per dati di input migliora la comprensione dei dati
+
+        \bigskip
+        \item Specifica in che formato vuoi ottenere l'output \textit{(paragrafo, lista, tabella, ...)}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Formati input e output}
+    \framesubtitle{Formato non strutturato}
+
+    \justifying
+    \textit{Per una carbonara per due persone ti serve un bel pezzo di guanciale, diciamo intorno ai 100 grammi, tagliato a listarelle. Poi ci vogliono le uova: un tuorlo a testa più un uovo intero in tutto va benissimo. Non dimenticare il pecorino romano, almeno 50 grammi a testa, grattugiato fresco. Abbondante pepe nero macinato al momento, ovviamente, e la pasta: 100 grammi di spaghetti o rigatoni per ogni persona. Tutto qui, niente panna, niente aglio, solo il necessario!}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Formati input e output}
+    \framesubtitle{Formato strutturato}
+
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{lc}
+            \toprule
+            \textbf{Ingrediente}            & \textbf{Quantità per 2 persone}   \\ 
+            \midrule
+            Guanciale                       & 100 g                             \\ 
+            Uova                            & 2 tuorli + 1 uovo                 \\ 
+            Pecorino romano                 & 100 g                             \\ 
+            Pepe nero                       & q.b.                              \\ 
+            Pasta (spaghetti o rigatoni)    & 200 g                             \\ 
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{exampleframe}
+
+        
+
+
+\begin{exampleframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Formati input e output}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/6759ada4-a0c8-8003-9a64-fcbce8b7c494}{Elenco}
+        \item \href{https://chatgpt.com/share/67655f30-2080-8003-85d4-f5b3b3540716}{Tabella}
+        \item \href{https://chatgpt.com/share/67655f61-6fb0-8003-9cb4-5fc6b04dcee5}{CSV}
+        \item \href{https://chatgpt.com/share/67655f87-b9f0-8003-8266-7729917000d8}{JSON}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Utilizzo dei delimitatori}
+
+    \begin{itemize}
+        \item Separa chiaramente i dati della richiesta (se possibile)
+
+        \bigskip
+        \item Usa caratteri speciali come delimitatori dei vari elementi della richiesta
+        \begin{itemize}
+            \item \texttt{--- Richiesta ---}\\
+                \textit{Calcola il prezzo delle mele}\\
+                \texttt{--- Dati ---}\\
+                \textit{Mele acquistate: 13}\\
+                \textit{(altri dati)}
+
+            \bigskip
+            \item \texttt{Q:} \textit{Calcola il prezzo delle mele sapendo che ...}\\
+                \texttt{A:}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Utilizzo dei delimitatori}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/675af550-6bb0-8003-966d-b7a36cb9fb6e}{Estrarre dati dai problemi}
+        \begin{itemize}
+            \item Non è sempre necessario, ma aiuta lo strumento a non confondersi
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Decomposizione attività complesse}
+
+    \begin{itemize}
+        \item Suddividi compiti complessi in sottoproblemi
+
+        \bigskip
+        \item Invece di richiedere la risoluzione di tanti problemi contemporaneamente, chiedi un problema alla volta
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Come si scrivono i prompt}
+    \framesubtitle{Decomposizione attività complesse}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/675be9d5-8804-8003-b24a-851e8edf3401}{Dieci problemi in un prompt}
+        \item \href{https://chatgpt.com/share/675bef6b-fa34-8003-8932-b1b662061efe}{Un solo problema per prompt}
+
+        \bigskip
+        \item Questo principio vale anche se abbiamo un singolo problema composto da tanti passi
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio}
+
+    Provare a scrivere dei prompt per:
+    \begin{enumerate}
+        \item Spiegare un certo concetto
+        \item Scrivere una mail su un certo argomento e con un certo tono
+        \item Rispondere alle seguenti \href{https://raw.githubusercontent.com/DavidePonzini/didattica/refs/heads/main/quesiti_medie.md}{domande}
+    \end{enumerate}
+
+    \bigskip
+    Sperimentare con diversi tipi di prompt e valutare le differenze nelle risposte
+\end{exerciseframe}
+
+\makesectionframe{Quali prompt usare?}
+
+\begin{contentframe}
+    \frametitle{Quali prompt usare?}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Regole importanti prima di iniziare:
+            \begin{enumerate}
+                \item Non avere paura di chiedere chiarimenti 
+                \item Non avere paura di dialogare con lo strumento
+                \item Non avere paura di faticare
+            \end{enumerate}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image[1][.6]{talk_ai.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Concetti sconosciuti}
+    
+    \begin{itemize}
+        \item \textbf{Se nella risposta sono presenti elementi che non conosciamo...}
+
+        \bigskip
+        \item Chiedere spiegazioni
+        \begin{itemize}
+            \item Utile se abbiamo compreso quasi tutta la risposta ma non conosciamo alcuni concetti
+        \end{itemize}
+        
+        \item Chiedere di riscrivere in maniera più semplice
+        \begin{itemize}
+            \item Utile se abbiamo capito poco o nulla
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Concetti sconosciuti}
+
+    \begin{itemize}
+        \item Chiedere spiegazioni
+        \begin{itemize}
+            \item \textit{Che cosa è la rapallizzazione?}
+            \item \textit{A cosa serve il wok?}
+            \item \textit{Cosa fa il BIOS?}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Concetti sconosciuti}
+
+    \begin{itemize}
+        \item Chiedere di riscrivere in maniera più semplice
+        \begin{itemize}
+            \item \textit{Semplifica la risposta precedente}
+            \item \textit{Riscrivi come se dovessi spiegarlo ad un giovane studente}
+            \item \textit{Riscrivi come se dovessi spiegarlo ad un ragazzo di 15 anni\footnote[frame]{ChatGPT non conosce la vostra età, quindi potrebbe fornire una risposta con un\\tono adatto per un adulto o un esperto del settore}}
+            \item \textit{Riscrivi come se dovessi spiegarlo ad un bambino di [8 / 5 / 3] anni}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Esempi}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/675c1a86-56c4-8003-bd9b-c737657e714a}{Analisi linguistica testo}
+        % \item \href{https://chatgpt.com/share/675c1a2c-380c-8003-a32f-8eac1a680302}{Python (list comprehension)}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Elementi diversi dalle aspettative}
+    
+    \begin{itemize}
+        \item \textbf{Se nella risposta sono presenti elementi che non ci aspettavamo...}
+
+        \bigskip
+        \item Chiedere informazioni sulla scelta
+        \begin{itemize}
+            \item Utile se stiamo cercando una soluzione qualsiasi al problema
+            \item Attenzione a formulare la domanda in maniera neutra!
+        \end{itemize}
+        
+        \item Chiedere alternative
+        \begin{itemize}
+            \item Utile se stiamo cercando una soluzione specifica al problema
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Elementi diversi dalle aspettative}
+
+    \begin{itemize}
+        \item Chiedere informazioni sulla scelta
+        \begin{itemize}
+            \item \textit{Perché hai usato la pancetta?}
+            \item \textit{Perché hai usato la pancetta invece del guanciale?}
+            \item \textcolor{red}{\st{\textit{Perché la pancetta è meglio del guanciale?}}}
+            \begin{itemize}
+                \item \textcolor{red}{Domanda di parte, fornisce risposte di parte}
+            \end{itemize}
+            \item \textit{Spiega le differenze tra usare la pancetta ed il guanciale per preparare la carbonara}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Elementi diversi dalle aspettative}
+
+    \begin{itemize}
+        \item Chiedere alternative
+        \begin{itemize}
+            \item \textit{Usa il guanciale invece della pancetta}
+            \item \textit{Non usare la pancetta}
+            \item \textit{Risolvi il problema in modo diverso, se possibile}
+            \item \textit{Fornisci 3 modi diversi di risolvere il problema, se esistono}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Mancata comprensione della richiesta}
+    
+    \begin{itemize}
+        \item \textbf{Se sembra che lo strumento non abbia compreso appieno le nostre intenzioni...}
+
+        \bigskip
+        \item Provare a formulare la richiesta con altre parole
+        \item Chiedere di concentrarsi su un certo aspetto della risposta
+        \item Aggiungere informazioni utili per la risposta e chiedere di provare nuovamente
+        \begin{itemize}
+            \item Particolarmente utile per richieste su argomenti non banali o facilmente fraintendibili
+        \end{itemize}
+        \item Modificare la domanda precedente, aggiungendo informazioni rilevanti
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Difficoltà interpretazione problema da parte dell'utente}
+    
+    \begin{itemize}
+        \item \textbf{Se non ci è chiaro come risolvere il problema...}
+
+        \bigskip
+        \item Chiedere di spiegarci i passi necessari alla risoluzione
+        \begin{itemize}
+            \item \textit{Non chiedere di risolverlo, ma di dire cosa fare per risolverlo}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Difficoltà interpretazione problema da parte dell'utente}
+
+    \begin{itemize}
+        \item Chiedere di spiegarci i passi necessari alla risoluzione
+        \begin{itemize}
+            \item \textit{Quali passi sono necessari per risolvere un'equazione fratta?}
+            \item \textit{Elenca le azioni necessarie per preparare le lasagne?}
+            \item \textit{Da quali operazioni è composta la creazione di una campagna pubblicitaria di successo?}
+            \item \textit{Da quali passaggi è formata la stesura di un articolo di giornale?}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Risposta troppo generica}
+    
+    \begin{itemize}
+        \item \textbf{Se la risposta è troppo generica o astratta...}
+
+        \bigskip
+        \item Fare una domanda più precisa
+        \item Chiedere di risolvere solo una parte del problema \textit{(tipo decomposizione vista prima)}
+        \item Fornire informazioni rilevanti sul materiale a nostra disposizione
+        \item Chiedere esempi
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Risposta troppo generica}
+
+    \begin{itemize}
+        \item Fare una domanda più precisa
+        \begin{itemize}
+            \item \textcolor{red}{\textit{Spiega dove mettere le posate}}
+            \item \textcolor{DarkGreen}{\textit{Spiega dove mettere le posate nel contesto del bon ton, prestando particolare attenzione alla cultura asiatica (abbiamo 7 ospiti provenienti da ...)}}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Risposta troppo generica}
+
+    \begin{itemize}
+        \item Chiedere di risolvere solo una parte del problema
+        \begin{itemize}
+            \item \textcolor{red}{\textit{Spiega dove mettere le posate nel contesto del bon ton, prestando particolare attenzione alla cultura asiatica}}
+            \item \textcolor{DarkGreen}{\textit{Spiega le differenze tra la cultura asiatica e quella italiana relativamente all'utilizzo delle posate nel bon ton}}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Risposta troppo generica}
+
+    \begin{itemize}
+        \item Fornire informazioni rilevanti sul materiale a nostra disposizione
+        \begin{itemize}
+            \item \textcolor{red}{\textit{Spiega dove mettere le posate nel contesto del bon ton, prestando particolare attenzione alla cultura asiatica}}
+            \item \textcolor{DarkGreen}{\textit{Spiega dove mettere le posate nel contesto del bon ton, prestando particolare attenzione alla cultura asiatica. Il menu è il seguente: ...}}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Quali prompt usare?}
+    \framesubtitle{Risposta troppo generica}
+
+    \begin{itemize}
+        \item Chiedere esempi
+        \begin{itemize}
+            \item \textit{Fornisci un esempio}
+            \item \textit{Fornisci una lista di esempi}
+            \item \textit{Spiega nuovamente quanto hai appena detto. Includi esempi per ogni passaggio}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\makesectionframe{Memoria tra le chat}
+
+\begin{contentframe}
+    \frametitle{Memoria tra le chat}
+
+    \begin{itemize}
+        \item Le AI generative si ricordano quanto detto \underline{solo} all'interno di una certa conversazione
+        \begin{itemize}
+            \item I messaggi precedenti influenzano le risposte successive
+            \item Conversazioni diverse sono separate e non si influenzano a vicenda
+        \end{itemize}
+        
+        \bigskip
+        \item La stessa domanda all'interno di conversazioni diverse può dare risposte diverse!
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Dove scrivere un nuovo messaggio}
+
+    \begin{itemize}
+        \item Nella stessa conversazione
+        \begin{itemize}
+            \item Vogliamo fare una domanda collegata alla risposta precedente
+        \end{itemize}
+
+        \bigskip
+        \item In una nuova conversazione
+        \begin{itemize}
+            \item Vogliamo fare una domanda non collegata ai messaggi precedenti
+            \item \textit{Non abbiate paura di iniziare tante conversazioni, non c'è un limite!}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Risposte non corrette}
+
+    Se la risposta non è quella che volevamo, possiamo:
+    \bigskip
+    
+    \begin{itemize}
+        \item Modificare il messaggio precedente
+        \begin{itemize}
+            \item Sentiamo di poter formulare meglio la domanda precedente
+        \end{itemize}
+
+        \bigskip
+        \item Scrivere un altro messaggio
+        \begin{itemize}
+            \item Non sappiamo come formulare meglio la domanda
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+
+\begin{exerciseframe}
+    \frametitle{Esercizio}
+
+    \begin{itemize}
+        \item Far generare uno schema riassuntivo di quali prompt usare nelle varie situazioni, sulla base di quanto appena detto
+    \end{itemize}
+\end{exerciseframe}
