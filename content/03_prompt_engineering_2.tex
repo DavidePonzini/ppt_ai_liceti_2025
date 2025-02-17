@@ -1,0 +1,342 @@
+\makesectionframe{Prompt engineering}[Tecniche avanzate]
+
+\begin{contentframe}
+    \frametitle{Prompt Engineering}
+    \framesubtitle{Tecniche avanzate}
+
+    \begin{itemize}
+        \item Diverse tecniche per ottenere risposte più accurate
+
+        \begin{enumerate}
+            \item Prompt Chaining
+            \item Zero-shot Promping
+            \item Few-shot Promping
+            \item Directional Stimulus Prompting
+            \item Chain-of-Thought Promping
+            \item Meta Prompting
+            \item Retrieval Augmented Generation (RAG)
+        \end{enumerate}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Prompt Chaining}
+
+    \begin{block}{Prompt Chaining}
+        Serie di prompt volti a ``ragionare'' assieme all'AI generativa, per guidarla a creare quello che vogliamo
+    \end{block}
+
+    \begin{itemize}
+        \item In realtà è qualsiasi serie di messaggi nella stessa conversazione
+
+        \bigskip
+        \item \textbf{Consigliato per:} qualsiasi richiesta non banale
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Prompt Chaining}
+
+    \begin{enumerate}
+        \item Si parte con:
+        \begin{itemize}
+            \item Richiesta di spiegare i passaggi necessari alla risoluzione di un problema
+            \item Richiesta di risolvere solo una parte del problema
+        \end{itemize}
+
+        \bigskip
+        \item Si legge accuratamente la risposta
+        \begin{itemize}
+            \item Se non è esattamente quello che volevamo, si chiedono modifiche
+        \end{itemize}
+        
+        \bigskip
+        \item Si chiede di risolvere un'altra parte del problema
+    \end{enumerate}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Prompt Chaining}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/67618531-ffa0-8003-9b5c-a3901716ad68}{Pranzo a Genova}
+
+        \bigskip
+        \item \href{https://chatgpt.com/share/67617f2f-1fa8-8003-bbd3-50c23bcec90a}{Analisi follia Amleto}
+
+        \bigskip
+        \item Dialogo sul meteo
+        \begin{itemize}
+            \item \href{https://chatgpt.com/share/675b09fd-aeb8-8003-a291-b04cea1f17c8}{Singolo prompt \faSun}
+            \item \href{https://chatgpt.com/share/675b098d-61b4-8003-881e-ba8f277e70b8}{Prompt Chaining \faWind~\faCloudShowersHeavy}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Prompt Chaining}
+
+    \begin{enumerate}
+        \item Usando Prompt Chaining, inventare un menu per il cenone di Natale e preparare la lista della spesa. Assicurarsi che ogni piatto del menu sia di vostro gradimento
+
+        \bigskip
+        \item Usando Prompt Chaining, generare una breve relazione di qualità su un certo argomento
+    \end{enumerate}
+\end{exerciseframe}
+
+
+
+\begin{contentframe}
+    \frametitle{Zero-shot Prompting}
+
+    \begin{itemize}
+        \item Forma più semplice di prompting
+        \item Si fa una domanda e si chiede una risposta
+
+        \bigskip
+        \item \textbf{Consigliato per:} qualsiasi richiesta
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Zero-shot Prompting}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/675c4511-aa20-8003-ae94-2f77b3d3c6ad}{Classificazione sentimento testo}
+        \item \href{https://chatgpt.com/share/675c46c2-8cec-8003-ba2f-434327e1fd49}{Riassunto testo}
+        \item \href{https://chatgpt.com/share/675c4751-8c98-8003-aeb7-eeb3aeb805f2}{Python - pari o dispari}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Few-shot Prompting}
+
+    \begin{itemize}
+        \item Si formiscono uno o più esempi di domanda-risposta prima della domanda che ci interessa
+        \item Gli esempi forniti influenzano il modo in cui viene formulata la risposta
+
+        \bigskip
+        \item \textbf{Consigliato per:} qualsiasi richiesta in cui Zero-shot Prompting non dà buoni risultati
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Few-shot Prompting}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/67616888-2a94-8003-a6ff-d4654de2d19f}{Stile risposta - Zero-shot}
+        \item \href{https://chatgpt.com/share/67617a94-bb78-8003-80e0-82d15c99033c}{Stile risposta - Few-shot}
+
+        \bigskip
+        \item \href{https://chatgpt.com/share/67852600-5a7c-8003-8e17-f9f33d8c9b18}{Sottintendere la domanda}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Zero-shot \& One-shot Prompting}
+    \framesubtitle{Esercizi}
+
+    \begin{enumerate}
+        \item Effettuare qualche domanda usando Zero-shot Prompting e verificare la risposta
+        \begin{itemize}
+            \item Se non è di vostro gradimento, usare il Few-shot Prompting e osservare le differenze
+        \end{itemize}
+
+        \bigskip
+        \item Fare una domanda senza formulare apertamente la richiesta \textit{(vedi slide precedente)}
+    \end{enumerate}
+\end{exerciseframe}
+
+
+
+\begin{contentframe}
+    \frametitle{Directional Stimulus Prompting}
+
+    \begin{itemize}
+        \item Si forniscono ``suggerimenti'' per indirizzare alla risposta
+
+        \bigskip
+        \item \textbf{Consigliato per:} generare risposte in cui sono enfatizzati alcuni concetti
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Directional Stimulus Prompting}
+    \framesubtitle{Esempio}
+
+    \image*[.85]{dsp.jpg}
+
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Directional Stimulus Prompting}
+    \framesubtitle{Esercizi}
+
+    \begin{enumerate}
+        \item Scrivere un racconto suggerendo alcuni concetti
+        \begin{itemize}
+            \item Esempio: \textit{avventura; aeroplano; amicizia; fame}
+        \end{itemize}
+
+        \bigskip
+        \item Riassumere un testo assicurandosi di includere alcune informazioni specifiche \textit{(vedi slide precedente)}
+    \end{enumerate}
+\end{exerciseframe}
+
+
+\begin{contentframe}
+    \frametitle{Chain-of-Thought Prompting}
+
+    \begin{itemize}
+        \item Si chiede al modello di scrivere il procedimento che ha usato per risolvere il problema
+        \begin{itemize}
+            \item Il modello ora è ``obbligato'' a ragionare in quel modo
+            \item Si riduce la probabilità che il modello ``tiri ad indovinare''
+        \end{itemize}
+        \item Per fare scrivere il ragionamento si possono usare le tecniche viste in precedenza
+
+        \bigskip
+        \item I modelli recenti lo fanno già in automatico in molti casi
+
+        \bigskip
+        \item \textbf{Consigliato per:} domande che richiedono di seguire un determinato un ragionamento
+    \end{itemize}    
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Chain-of-Thought Prompting}
+    \framesubtitle{Esempio}
+
+    \image*{cot.jpg}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Chain-of-Thought Prompting}
+    \framesubtitle{Esercizi}
+
+    \begin{enumerate}
+        \item Porre alcune domande che richiedono ragionamento
+        \begin{itemize}
+            \item Se la risposta non contiene ragionamento, riprovare applicando Chain-of-Thought
+            \item Se la risposta contiene ragionamento, provare con una domanda diversa
+        \end{itemize}
+    \end{enumerate}
+    
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Meta Prompting}
+
+    \begin{itemize}
+        \item Si descrive il formato in cui si vuole che il modello ragioni
+        \item Non importa lo stile della risposta
+
+        \bigskip
+        \item Come per \textit{Chain-of-Thought}, il modello ragiona più attentamente sul procedimento per risolvere il problema
+
+        \bigskip
+        \item \textbf{Consigliato per:} domande che richiedono di ragionare attentamente prima di rispondere
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Meta Prompting}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item Calcolo del dominio di $\frac{\sqrt{-5x + 7}}{\ln(\sqrt{x})} + \cos^2\left(\frac{\pi}{4x}\right)$
+        \begin{itemize}
+            \item \href{https://chatgpt.com/share/6776910a-2990-8003-a158-e9337a55edf2}{Zero-shot Prompting}
+            \item \href{https://chatgpt.com/share/6776a842-0c34-8003-adcb-9c45bbdbd9d8}{Meta Prompting}
+            \item \href{https://www.wolframalpha.com/input?i2d=true&i=Divide\%5BSqrt\%5B-5x\%2B7\%5D\%2Cln\%5C\%2840\%29Sqrt\%5Bx\%5D\%5C\%2841\%29\%5D\%2BSquare\%5Bcos\%5C\%2840\%29Divide\%5B\%CF\%80\%2C4x\%5D\%5C\%2841\%29\%5Ddomain}{Soluzione corretta}
+        \end{itemize}
+
+        \bigskip
+        \item Feedback su un elaborato scritto da uno studente
+        \begin{itemize}
+            \item \href{https://chatgpt.com/share/6776a962-9c08-8003-bdce-1787adc79515}{Zero-shot Prompting}
+            \item \href{https://chatgpt.com/share/6776a77f-8288-8003-86ad-95b7b556fcf6}{Meta Prompting}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Meta Prompting}
+    \framesubtitle{Esercizio}
+
+    \begin{itemize}
+        \item Usando Chain-of-Thought o Meta Prompting, generare la risposta ad un problema che richiede ragionamento
+
+        \bigskip
+        \item Confrontare le risposte ottenute rispetto ad un prompt semplice
+    \end{itemize}
+\end{exerciseframe}
+
+
+\begin{contentframe}
+    \frametitle{Retrieval Augmented Generation (RAG)}
+
+    \begin{itemize}
+        \item Tecnica più complessa, supportata solo da alcuni modelli
+        
+        \bigskip
+        \item Il modello ha accesso a uno o più documenti dell'utente
+        \begin{itemize}
+            \item Estrae informazioni pertinenti alla domanda
+            \item Include automaticamente queste informazioni nella vostra domanda
+            \item Genera la risposta usando queste informazioni
+        \end{itemize}
+
+        \bigskip
+        \item \textbf{Consigliato per:} generare risposte attingendo a materiale fornito dall'utente
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{``Retrieval Augmented Generation''}
+    \framesubtitle{Versione \textit{fai-da-te}}
+
+    \begin{itemize}
+        \item Se sappiamo già quali sono le parti importanti di un testo, possiamo includerle direttamente noi nel prompt
+        
+        \bigskip
+        \item Supportato da tutti i modelli, in quanto alla fine abbiamo un prompt normale
+
+        \bigskip
+        \item \textbf{Consigliato per:} generare risposte attingendo a materiale fornito dall'utente
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Retrieval Augmented Generation}
+    \framesubtitle{Esempi}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/67769fb3-be30-8003-8ec1-74ecf8c9ad2d}{Zero-shot Prompt}
+        \begin{itemize}
+            \item Il modello non ha capito cosa intendevo con Meta Prompting ed ha generato un \textit{``prompt per generare prompt''}
+        \end{itemize}
+        \item \href{https://chatgpt.com/share/6776a11e-da24-8003-92ad-b574ebc8788a}{Aggiunta manuale del contesto} (\href{https://www.promptingguide.ai/techniques/meta-prompting}{fonte})
+        \begin{itemize}
+            \item Il modello ora ha capito cosa intendevo ed ha generato un esempio rilevante
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Retrieval Augmented Generation}
+    \framesubtitle{Esercizi}
+
+    \begin{enumerate}
+        \item Fare una domanda e fornire un file contenente informazioni utili alla risposta
+
+        \bigskip
+        \item Chiedere di riassumere un documento allegato alla domanda
+
+        \bigskip
+        \item Chiedere di estrarre informazioni da un documento allegato alla domanda
+    \end{enumerate}
+\end{exerciseframe}
